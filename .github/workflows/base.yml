@@ -93,7 +93,7 @@ jobs:
         run: sed -i "s/virtualenv/virtualenv==20.15.1/g" noxfile-requirements.txt
 
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v2
+        uses: pyvista/setup-headless-display-action@v4
         with:
           qt: true
 
@@ -152,7 +152,7 @@ jobs:
           architecture: x64
 
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v2
+        uses: pyvista/setup-headless-display-action@v4
         with:
           qt: true
 
