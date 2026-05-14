@@ -228,6 +228,7 @@ MKDOCS_GALLERY_EXAMPLES_MAYAVI_REQS = [
     #"git+https://github.com/enthought/mayavi.git",  # we want mayavi>=4.7.4 when available due to https://github.com/enthought/mayavi/pull/1272
     "configobj",
     "numpy<2",
+    "vtk<9.3",  # vtk>=9.3 segfaults with mayavi on ubuntu-24.04
     "mayavi"
 ]
 
