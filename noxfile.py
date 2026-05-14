@@ -94,7 +94,7 @@ def tests(session, coverage, pkg_specs):
     # install all requirements
     install_reqs(session, setup=True, install=True, tests=True, versions_dct=pkg_specs)
     # Since our tests are currently limited, use our own doc generation as a test
-    cannot_run_mayavi = version.parse(session.python) < version.parse(PY38)
+    cannot_run_mayavi = version.parse(session.python) < version.parse(PY38) or os.environ.get("CI") == "true"
     if cannot_run_mayavi:
         install_reqs(session, phase="tests", phase_reqs=MKDOCS_GALLERY_EXAMPLES_REQS)
     else:
@@ -228,7 +228,6 @@ MKDOCS_GALLERY_EXAMPLES_MAYAVI_REQS = [
     #"git+https://github.com/enthought/mayavi.git",  # we want mayavi>=4.7.4 when available due to https://github.com/enthought/mayavi/pull/1272
     "configobj",
     "numpy<2",
-    "vtk<9.3",  # vtk>=9.3 segfaults with mayavi on ubuntu-24.04
     "mayavi"
 ]
 
